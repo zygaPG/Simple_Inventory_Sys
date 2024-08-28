@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
+        //creat move action from asset
         moveAction = actions.FindAction("Move");
         moveAction.performed += OnMove;
         moveAction.canceled += OnMove;
@@ -67,11 +68,4 @@ public class PlayerMovement : MonoBehaviour
     {
         movementInput = context.ReadValue<Vector2>();
     }
-
-    public void Move(InputAction.CallbackContext context)
-    {
-        movementInput = context.ReadValue<Vector2>();
-    }
-
-
 }
