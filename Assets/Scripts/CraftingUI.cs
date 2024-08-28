@@ -25,10 +25,10 @@ public class CraftingUI : MonoBehaviour
 
     void OnEnable()
     {
-        Cloan();
+        Clean();
     }
 
-    void Cloan()
+    void Clean()
     {
         slotA.SetItem(null, 0);
         slotB.SetItem(null, 0);
@@ -37,7 +37,7 @@ public class CraftingUI : MonoBehaviour
 
     public void Open()
     {
-        Cloan();
+        Clean();
         craftingPanel.SetActive(true);
     }
 

@@ -113,9 +113,9 @@ public class Crafting : MonoBehaviour
 
 
         inventory.TakeItem(item_R, slotForNewItem);
-        UpdateSelected();
-        UpdateItems();
-        //Clean();
+        //UpdateSelected();
+        //UpdateItems();  
+        Clean();
     }
 
 
