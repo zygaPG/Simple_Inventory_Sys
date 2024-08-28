@@ -7,5 +7,8 @@ public class ItemData : ScriptableObject
     public Sprite icon;
 
     public Item prefab;
+
+    public ItemData craftingMaterial_A;
+    public ItemData craftingMaterial_B;
 }
 

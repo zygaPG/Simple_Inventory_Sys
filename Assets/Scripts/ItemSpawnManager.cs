@@ -5,6 +5,8 @@ using UnityEngine;
 public class ItemSpawnManager : MonoBehaviour
 {
     public static ItemSpawnManager Instance;
+
+    public List<ItemData> allItems = new List<ItemData>();
     
     void Awake()
     {
@@ -13,15 +15,11 @@ public class ItemSpawnManager : MonoBehaviour
             
         Instance = this;
     }
+
     public void DropAnItem(ItemData data, Vector3 dropPosition)
     {
         dropPosition.y += 1;
         Item newItem = Instantiate(data.prefab, dropPosition, Quaternion.identity);
         newItem.Drop();
     }
-
-
-
-
-
 }

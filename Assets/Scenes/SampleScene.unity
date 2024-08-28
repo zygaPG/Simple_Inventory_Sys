@@ -326,6 +326,7 @@ GameObject:
   - component: {fileID: 286683604}
   - component: {fileID: 286683603}
   - component: {fileID: 286683602}
+  - component: {fileID: 286683605}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -411,6 +412,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 286683600}
   m_CullTransparentMesh: 1
+--- !u!114 &286683605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286683600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fd8b3e7fca23f3429c3cc554a7dc075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  craftingPanel: {fileID: 1295126703}
+  slotA: {fileID: 2103180513}
+  slotB: {fileID: 1644230344}
+  slotResult: {fileID: 1389998460}
 --- !u!1 &395558191
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,7 +724,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6161223719869042668, guid: cfeb5556a38c8d045bc36aa336043466, type: 3}
       propertyPath: m_Name
-      value: ItemSlot
+      value: ItemSlot A
+      objectReference: {fileID: 0}
+    - target: {fileID: 7061428880174318203, guid: cfeb5556a38c8d045bc36aa336043466, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7061428880174318203, guid: cfeb5556a38c8d045bc36aa336043466, type: 3}
+      propertyPath: m_Color.g
+      value: 0.3947936
+      objectReference: {fileID: 0}
+    - target: {fileID: 7061428880174318203, guid: cfeb5556a38c8d045bc36aa336043466, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8584906
+      objectReference: {fileID: 0}
+    - target: {fileID: 7061428880174318203, guid: cfeb5556a38c8d045bc36aa336043466, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093138992674759395, guid: cfeb5556a38c8d045bc36aa336043466, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093138992674759395, guid: cfeb5556a38c8d045bc36aa336043466, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093138992674759395, guid: cfeb5556a38c8d045bc36aa336043466, type: 3}
+      propertyPath: m_Color.b
+      value: 0.7122642
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093138992674759395, guid: cfeb5556a38c8d045bc36aa336043466, type: 3}
+      propertyPath: m_Color.g
+      value: 0.91537184
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093138992674759395, guid: cfeb5556a38c8d045bc36aa336043466, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1354,6 +1407,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7c7d90e20a4644459fc97047a450f73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allItems:
+  - {fileID: 11400000, guid: 202ae0fb533916641bdafc810f444d74, type: 2}
+  - {fileID: 11400000, guid: 18c5e8f41a720e5468c555e81273657d, type: 2}
+  - {fileID: 11400000, guid: bf9894d4996e051438362108dd560ec0, type: 2}
 --- !u!4 &757657476
 Transform:
   m_ObjectHideFlags: 0
@@ -1857,6 +1914,7 @@ GameObject:
   - component: {fileID: 1052523008}
   - component: {fileID: 1052523010}
   - component: {fileID: 1052523011}
+  - component: {fileID: 1052523012}
   m_Layer: 0
   m_Name: Player Character
   m_TagString: Untagged
@@ -2054,12 +2112,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1052523012}
+        m_TargetAssemblyTypeName: Crafting, Assembly-CSharp
+        m_MethodName: SelectItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onPressDrop:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1052523011}
         m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
         m_MethodName: DropCurrentItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1052523012}
+        m_TargetAssemblyTypeName: Crafting, Assembly-CSharp
+        m_MethodName: UnselectItem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2099,6 +2181,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onTogleCrafting:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1052523012}
+        m_TargetAssemblyTypeName: Crafting, Assembly-CSharp
+        m_MethodName: TogleOpenClose
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1052523011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2111,20 +2208,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45f6524e7e763b24281bfa8d6684e797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myItems:
-  - key: {fileID: 0}
-    amount: 0
-  - key: {fileID: 0}
-    amount: 0
-  - key: {fileID: 0}
-    amount: 0
-  - key: {fileID: 0}
-    amount: 0
-  - key: {fileID: 0}
-    amount: 0
-  - key: {fileID: 0}
-    amount: 0
+  currentSelectedSlot: 0
   itemsDetector: {fileID: 1675197161}
+  isLocked: 0
+--- !u!114 &1052523012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052523002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27142ebc769202c4caa29576e8910ff9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 1052523011}
+  isOpen: 0
+  onCraftingOpen:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1052523011}
+        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+        m_MethodName: Lock
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1164691308
 GameObject:
   m_ObjectHideFlags: 0
@@ -2282,14 +2397,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 0.86820203, b: 0.5518868, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2428,7 +2543,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6161223719869042668, guid: cfeb5556a38c8d045bc36aa336043466, type: 3}
       propertyPath: m_Name
-      value: ItemSlot (2)
+      value: ItemSlot Res
+      objectReference: {fileID: 0}
+    - target: {fileID: 7061428880174318203, guid: cfeb5556a38c8d045bc36aa336043466, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7061428880174318203, guid: cfeb5556a38c8d045bc36aa336043466, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7061428880174318203, guid: cfeb5556a38c8d045bc36aa336043466, type: 3}
+      propertyPath: m_Color.r
+      value: 0.7902219
+      objectReference: {fileID: 0}
+    - target: {fileID: 7061428880174318203, guid: cfeb5556a38c8d045bc36aa336043466, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2440,6 +2571,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5100580669618148997, guid: cfeb5556a38c8d045bc36aa336043466, type: 3}
   m_PrefabInstance: {fileID: 1389998456}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1389998460 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 394479496260996622, guid: cfeb5556a38c8d045bc36aa336043466, type: 3}
+  m_PrefabInstance: {fileID: 1389998456}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44ed5d5212f84c84fa168ccfb1a7cdb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1644230340
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2530,7 +2672,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6161223719869042668, guid: cfeb5556a38c8d045bc36aa336043466, type: 3}
       propertyPath: m_Name
-      value: ItemSlot (1)
+      value: ItemSlot B
+      objectReference: {fileID: 0}
+    - target: {fileID: 7061428880174318203, guid: cfeb5556a38c8d045bc36aa336043466, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7061428880174318203, guid: cfeb5556a38c8d045bc36aa336043466, type: 3}
+      propertyPath: m_Color.g
+      value: 0.3947936
+      objectReference: {fileID: 0}
+    - target: {fileID: 7061428880174318203, guid: cfeb5556a38c8d045bc36aa336043466, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8584906
+      objectReference: {fileID: 0}
+    - target: {fileID: 7061428880174318203, guid: cfeb5556a38c8d045bc36aa336043466, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093138992674759395, guid: cfeb5556a38c8d045bc36aa336043466, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093138992674759395, guid: cfeb5556a38c8d045bc36aa336043466, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093138992674759395, guid: cfeb5556a38c8d045bc36aa336043466, type: 3}
+      propertyPath: m_Color.b
+      value: 0.7122642
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093138992674759395, guid: cfeb5556a38c8d045bc36aa336043466, type: 3}
+      propertyPath: m_Color.g
+      value: 0.91537184
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093138992674759395, guid: cfeb5556a38c8d045bc36aa336043466, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2542,6 +2720,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5100580669618148997, guid: cfeb5556a38c8d045bc36aa336043466, type: 3}
   m_PrefabInstance: {fileID: 1644230340}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1644230344 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 394479496260996622, guid: cfeb5556a38c8d045bc36aa336043466, type: 3}
+  m_PrefabInstance: {fileID: 1644230340}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44ed5d5212f84c84fa168ccfb1a7cdb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1673893424
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3404,6 +3593,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2103180513 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 394479496260996622, guid: cfeb5556a38c8d045bc36aa336043466, type: 3}
+  m_PrefabInstance: {fileID: 440138407}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44ed5d5212f84c84fa168ccfb1a7cdb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2118003126
 GameObject:
   m_ObjectHideFlags: 0

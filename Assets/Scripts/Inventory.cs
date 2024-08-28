@@ -13,12 +13,49 @@ public class Inventory : MonoBehaviour
         public int amount;
     }
 
-    [SerializeField] ItemAmount[] myItems = new ItemAmount[6];
+    private ItemAmount[] myItems = new ItemAmount[6];
 
-    private int currentSelectedSlot = 0;
+    public ItemData TakeItemFromSlot(int id) => myItems[id].key;
+    public int TakeAmountFromSlot(int id) => myItems[id].amount;
+
+    public int currentSelectedSlot = 0;
 
 
     [SerializeField] ItemsDetector itemsDetector;
+
+
+    /// <summary>
+    /// inventory is lock for inputs interactions
+    /// </summary>
+    public bool isLocked = false;
+
+    public int FirstEmptySlotId
+    {
+        get
+        {
+            for (int i = 0; i < myItems.Length; i++)
+            {
+                if (myItems[i].key == null)
+                    return i;
+            }
+
+            return int.MaxValue;
+        }
+    }
+
+    public int FirstSlotWithItem(ItemData item)
+    {
+        for (int i = 0; i < myItems.Length; i++)
+        {
+            if (myItems[i].key == item)
+                return i;
+        }
+
+        return int.MaxValue;
+    }
+
+    public void Lock(bool isTrue) => isLocked = isTrue;
+
 
     public void SelectNextSlot()
     {
@@ -40,13 +77,16 @@ public class Inventory : MonoBehaviour
 
     public void TryTakeClosestItem()
     {
+        if (isLocked)
+            return;
+
         if (itemsDetector.GetClosestItem() is Item itm)
         {
             TakeItem(itm, currentSelectedSlot);
         }
     }
 
-    void TakeItem(Item item, int slotId)
+    public void TakeItem(Item item, int slotId)
     {
         if (item == null)
             return;
@@ -60,7 +100,8 @@ public class Inventory : MonoBehaviour
             myItems[slotId].key = item.SO;
             myItems[slotId].amount = 1;
 
-            item.Take(transform.position);
+            if (item)
+                item.Take(transform.position);
             InventoryUI.Instance.UpdateItemSlot(slotId, myItems[slotId].key, myItems[slotId].amount);
             return;
         }
@@ -86,11 +127,63 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public void TakeItem(ItemData item, int slotId)
+    {
+        if (item == null)
+            return;
+
+        if (slotId >= myItems.Length)
+            return;
+
+
+        if (myItems[slotId].key == null)
+        {
+            myItems[slotId].key = item;
+            myItems[slotId].amount = 1;
+
+
+            InventoryUI.Instance.UpdateItemSlot(slotId, myItems[slotId].key, myItems[slotId].amount);
+            return;
+        }
+
+
+        if (myItems[slotId].key == item)
+        {
+            myItems[slotId].amount++;
+
+            InventoryUI.Instance.UpdateItemSlot(slotId, myItems[slotId].key, myItems[slotId].amount);
+            return;
+        }
+
+        if (myItems[slotId].key != null)
+        {
+            DropAll(slotId);
+
+            myItems[slotId].key = item;
+            myItems[slotId].amount = 1;
+            InventoryUI.Instance.UpdateItemSlot(slotId, myItems[slotId].key, myItems[slotId].amount);
+        }
+    }
+
 
     public void DropCurrentItem()
     {
+        if (isLocked)
+            return;
+
         DropSingle(currentSelectedSlot);
     }
+
+    public void UseItemToCrafting(int slotId)
+    {
+        myItems[slotId].amount--;
+        if (myItems[slotId].amount <= 0)
+            myItems[slotId].key = null;
+
+        InventoryUI.Instance.UpdateItemSlot(slotId, myItems[slotId].key, myItems[slotId].amount);
+    }
+
+  
 
     /// <summary>
     /// remove item completely form list
