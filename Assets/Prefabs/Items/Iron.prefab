@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 6359788064216339574}
   - component: {fileID: 4924048545787359353}
   - component: {fileID: 1871156328875008919}
+  - component: {fileID: 411284986610990571}
   m_Layer: 6
   m_Name: Iron
   m_TagString: Item
@@ -181,6 +182,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SO: {fileID: 11400000, guid: 202ae0fb533916641bdafc810f444d74, type: 2}
   rb: {fileID: 6359788064216339574}
+  outline: {fileID: 411284986610990571}
+--- !u!114 &411284986610990571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5004242514828564666}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.9433962, g: 0.20914915, b: 0.20914915, a: 1}
+  outlineWidth: 2.68
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &6482681523392250473
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8466021363747081012}
   - component: {fileID: 4653424008048905361}
   - component: {fileID: 7622801493574686}
+  - component: {fileID: 4632243148489266817}
   m_Layer: 6
   m_Name: Rock
   m_TagString: Item
@@ -98,6 +99,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SO: {fileID: 11400000, guid: 18c5e8f41a720e5468c555e81273657d, type: 2}
   rb: {fileID: 8466021363747081012}
+  outline: {fileID: 4632243148489266817}
+--- !u!114 &4632243148489266817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6844601475302611024}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.9622642, g: 0.16794233, b: 0.16794233, a: 1}
+  outlineWidth: 2.68
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &7073434705028603641
 GameObject:
   m_ObjectHideFlags: 0

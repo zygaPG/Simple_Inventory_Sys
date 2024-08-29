@@ -6,7 +6,26 @@ public class ItemsDetector : MonoBehaviour
     // List to keep track of detected items
     [SerializeField] private List<Collider> itemsInRange = new List<Collider>();
 
+    [SerializeField] bool autoOutlineSelection = true;
 
+    Item clossestItem;
+
+    [SerializeField] Color OutlineColor;
+
+    void Update()
+    {
+        if (autoOutlineSelection)
+        {
+            if (clossestItem != null)
+                clossestItem.SetOutline(false, OutlineColor);
+
+            if (GetClosestItem() is Item item)
+            {
+                clossestItem = item;
+                item.SetOutline(true, OutlineColor);
+            }
+        }
+    }
 
 
     void OnTriggerEnter(Collider other)
@@ -57,7 +76,7 @@ public class ItemsDetector : MonoBehaviour
     {
         if (itemsInRange.Count == 0)
             return;
-            
+
         List<Collider> itms = new List<Collider>();
 
 

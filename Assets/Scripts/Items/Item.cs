@@ -4,11 +4,18 @@ using UnityEngine;
 
 
 
-public class Item : MonoBehaviour, ITakable, IDrop
+public class Item : MonoBehaviour, ITakable, IDrop, IOutlined
 {
     public ItemData SO;
     public Rigidbody rb;
 
+    public Outline outline;
+
+
+    void Awake()
+    {
+        outline.enabled = false;
+    }
     public void Take(Vector3 takePosition)
     {
         if(takePosition == null)
@@ -44,6 +51,9 @@ public class Item : MonoBehaviour, ITakable, IDrop
         Destroy(this.gameObject);
     }
 
-
-
+    public void SetOutline(bool isActive, Color color)
+    {
+        outline.enabled = isActive;
+        outline.OutlineColor = color;
+    }
 }
