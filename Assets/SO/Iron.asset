@@ -15,3 +15,5 @@ MonoBehaviour:
   itemName: Iron
   icon: {fileID: 21300000, guid: 6feedf4aed305f54a9b3dbae617eef0d, type: 3}
   prefab: {fileID: 1871156328875008919, guid: 6c1ee9fbc22e17c4c9fd35bb4a45b0a1, type: 3}
+  craftingMaterial_A: {fileID: 0}
+  craftingMaterial_B: {fileID: 0}

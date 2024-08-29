@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fb011cfe1a305549a093e9fedec325d, type: 3}
   m_Name: NailStick
   m_EditorClassIdentifier: 
-  itemName: 
-  icon: {fileID: 0}
-  prefab: {fileID: 0}
-  craftingMaterial_A: {fileID: 0}
-  craftingMaterial_B: {fileID: 0}
+  itemName: Nail Stick
+  icon: {fileID: 21300000, guid: f5551cd6077fc3c40a89b08a5681a78f, type: 3}
+  prefab: {fileID: 1111132851591751056, guid: 218d1f0b88ff193419fbd22cbd6c5d2c, type: 3}
+  craftingMaterial_A: {fileID: 11400000, guid: 24059fa1d84177340bf263876b00b297, type: 2}
+  craftingMaterial_B: {fileID: 11400000, guid: 92f4bc92fd7d9814bae1d197d3641060, type: 2}
+  chanceToCraft: 0.2

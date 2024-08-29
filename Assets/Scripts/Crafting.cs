@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -12,6 +11,10 @@ public class Crafting : MonoBehaviour
     public class SimpleEvent : UnityEvent<bool> { }
 
     public SimpleEvent onCraftingOpen;
+
+    public SimpleEvent onCraftingSuccess;
+
+    public SimpleEvent onCraftingFail;
 
     int selectedItem_A = int.MaxValue;
     int selectedItem_B = int.MaxValue;
@@ -101,18 +104,31 @@ public class Crafting : MonoBehaviour
         inventory.UseItemToCrafting(selectedItem_A);
         inventory.UseItemToCrafting(selectedItem_B);
 
-        int slotForNewItem = inventory.FirstSlotWithItem(item_R);
-
-        if (slotForNewItem == int.MaxValue)
+        //calculate chance to craft
+        if (item_R.chanceToCraft > Random.Range(-10.0f, 10.0f))
         {
-            slotForNewItem = inventory.FirstEmptySlotId;
+
+            int slotForNewItem = inventory.FirstSlotWithItem(item_R);
+
             if (slotForNewItem == int.MaxValue)
-                slotForNewItem = inventory.currentSelectedSlot;
+            {
+                slotForNewItem = inventory.FirstEmptySlotId;
+                if (slotForNewItem == int.MaxValue)
+                    slotForNewItem = inventory.currentSelectedSlot;
+
+            }
+
+
+
+            inventory.TakeItem(item_R, slotForNewItem);
+        }
+        else
+        {
+            //fail
+
 
         }
 
-
-        inventory.TakeItem(item_R, slotForNewItem);
         //UpdateSelected();
         //UpdateItems();  
         Clean();
@@ -151,6 +167,23 @@ public class Crafting : MonoBehaviour
         }
 
         CraftingUI.Instance.UpdateSelectedItems(item_A, item_B, item_R);
+
+        if (item_A != null || item_B != null)
+        {
+            CraftingUI.Instance.ShowRemoveItemInfo(true);
+        }
+        else
+        {
+            CraftingUI.Instance.ShowRemoveItemInfo(false);
+        }
+
+        if (item_A != null && item_B != null)
+        {
+            CraftingUI.Instance.ShowAcceptInfoText();
+            return;
+        }
+
+        CraftingUI.Instance.ShowSelectInfoText();
     }
 
 

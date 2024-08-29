@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fb011cfe1a305549a093e9fedec325d, type: 3}
   m_Name: Nail
   m_EditorClassIdentifier: 
-  itemName: 
-  icon: {fileID: 0}
-  prefab: {fileID: 0}
-  craftingMaterial_A: {fileID: 0}
-  craftingMaterial_B: {fileID: 0}
+  itemName: Nail
+  icon: {fileID: 21300000, guid: db51106963865fa40b7396b728c1e68c, type: 3}
+  prefab: {fileID: 7864399101969513144, guid: f6d58f2ea2a97104ca0ad31b42475a13, type: 3}
+  craftingMaterial_A: {fileID: 11400000, guid: 202ae0fb533916641bdafc810f444d74, type: 2}
+  craftingMaterial_B: {fileID: 11400000, guid: 202ae0fb533916641bdafc810f444d74, type: 2}
+  chanceToCraft: 0.6

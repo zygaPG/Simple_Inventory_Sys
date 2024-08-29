@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,11 @@ public class CraftingUI : MonoBehaviour
     [SerializeField] ItemSlotUI slotA;
     [SerializeField] ItemSlotUI slotB;
     [SerializeField] ItemSlotUI slotResult;
+
+    [SerializeField] TextMeshProUGUI selectInfo;
+    [SerializeField] TextMeshProUGUI acceptInfo;
+
+    [SerializeField] TextMeshProUGUI removeItemInfo;
 
     public bool IsOpen => craftingPanel.activeInHierarchy;
 
@@ -54,5 +60,20 @@ public class CraftingUI : MonoBehaviour
         slotResult.SetItem(itm_R, 1);
     }
 
+    public void ShowSelectInfoText()
+    {
+        selectInfo.gameObject.SetActive(true);
+        acceptInfo.gameObject.SetActive(false);
+    }
 
+    public void ShowAcceptInfoText()
+    {
+        selectInfo.gameObject.SetActive(false);
+        acceptInfo.gameObject.SetActive(true);
+    }
+
+    public void ShowRemoveItemInfo(bool isVisable)
+    {
+        removeItemInfo.gameObject.SetActive(isVisable);
+    }
 }

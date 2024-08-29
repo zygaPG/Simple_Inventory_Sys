@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fb011cfe1a305549a093e9fedec325d, type: 3}
   m_Name: Desk
   m_EditorClassIdentifier: 
-  itemName: 
-  icon: {fileID: 0}
-  prefab: {fileID: 0}
-  craftingMaterial_A: {fileID: 0}
-  craftingMaterial_B: {fileID: 0}
+  itemName: Desk
+  icon: {fileID: 21300000, guid: ff1746e8d31d73d4f9bbf672143508eb, type: 3}
+  prefab: {fileID: 5956237934459291740, guid: 644289098dc68864b91109842782f092, type: 3}
+  craftingMaterial_A: {fileID: 11400000, guid: bf9894d4996e051438362108dd560ec0, type: 2}
+  craftingMaterial_B: {fileID: 11400000, guid: bf9894d4996e051438362108dd560ec0, type: 2}
+  chanceToCraft: 1
