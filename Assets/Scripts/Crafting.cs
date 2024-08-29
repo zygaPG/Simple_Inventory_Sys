@@ -105,7 +105,7 @@ public class Crafting : MonoBehaviour
         inventory.UseItemToCrafting(selectedItem_B);
 
         //calculate chance to craft
-        if (item_R.chanceToCraft > Random.Range(-10.0f, 10.0f))
+        if (item_R.chanceToCraft >= Random.Range(-0f, 1f))
         {
 
             int slotForNewItem = inventory.FirstSlotWithItem(item_R);
